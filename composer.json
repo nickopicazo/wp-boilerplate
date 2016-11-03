@@ -1,0 +1,10 @@
+{
+  "require": {
+    "components/jquery": "2.1.*",
+    "twbs/bootstrap": "3.3.*",
+    "fortawesome/font-awesome": "4.4.*"
+  },
+  "config": {
+    "vendor-dir": "lib"
+  }
+}

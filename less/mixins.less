@@ -1,0 +1,51 @@
+.fixRow( @value: 0px ) {
+  &.row {
+    margin-left: -@value;
+    margin-right: -@value;
+    > .col {
+      padding-left: @value;
+      padding-right: @value;
+    }
+  }
+}
+.bgFix {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.reset {
+  margin: 0px;
+  border: none;
+  border-radius: 0px;
+}
+.animate(@property, @duration, @easing) {
+	-moz-transition: @property @duration @easing;
+	-webkit-transition: @property @duration @easing;
+	-o-transition: @property @duration @easing;
+	transition: @property @duration @easing;
+}
+.transform-scale(@value) {
+	-webkit-transform: scale(@value);
+  -moz-transform: scale(@value);
+  -ms-transform: scale(@value);
+  -o-transform: scale(@value);
+  transform: scale(@value);
+}
+.transform-rotate(@value) {
+	-webkit-transform: rotate(@value);
+  -moz-transform: rotate(@value);
+  -ms-transform: rotate(@value);
+  -o-transform: rotate(@value);
+  transform: rotate(@value);
+}
+.box-shadow(@horizontal, @vertical, @blur, @rgba) {
+  -moz-box-shadow: @horizontal @vertical @blur @rgba;
+  -webkit-box-shadow: @horizontal @vertical @blur @rgba;
+  box-shadow: @horizontal @vertical @blur @rgba;
+}
+.line-clamp( @lines ) {
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -22,6 +22,7 @@ class App {
   public function app_enqueue_styles() {
 
     wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), '3.3.7', 'all' );
+    wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', array( 'bootstrap' ), '4.6.3', 'all' );
 
   }
 
@@ -51,6 +52,31 @@ class App {
       register_nav_menu( $key, $value );
 
     }
+
+  }
+
+  public function app_less_compile( $input, $output ) {
+
+    require_once( get_template_directory() . '/lib/less.php/lessc.inc.php' );
+
+    try {
+
+      $url = '';
+  		$options = array( 'compress' => true );
+  		$parser = new Less_Parser( $options );
+
+  		$parser->parseFile( $input, $url );
+
+  		$css = $parser->getCss();
+
+  		file_put_contents( $output, $css );
+
+  	} catch( Exception $e ) {
+
+  		$error = $e->getMessage();
+  		print_r( $error );
+
+  	}
 
   }
 
