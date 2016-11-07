@@ -9,13 +9,13 @@ class App {
     add_action( 'wp_enqueue_scripts', array( $this, 'app_enqueue_styles' ) );
     add_action( 'wp_enqueue_scripts', array( $this, 'app_enqueue_scripts' ) );
 
+    add_filter( 'wp_nav_menu_items', array( $this, 'app_nav_items' ), 1, 2 );
+
   }
 
   public function app_init() {
 
     $this->app_add_theme_support( array( 'menus', 'post-thumbnails', 'title-tag', 'html5' ) );
-
-    $this->app_register_nav_menu( array( 'main' => 'Main Navigation', 'sub' => 'Sub Navigation' ) );
 
   }
 
@@ -23,6 +23,7 @@ class App {
 
     wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), '3.3.7', 'all' );
     wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', array( 'bootstrap' ), '4.6.3', 'all' );
+    wp_enqueue_style( 'main', get_bloginfo('template_url') . '/css/main.css', array( 'bootstrap' ), '4.6.3', 'all' );
 
   }
 
@@ -77,6 +78,24 @@ class App {
   		print_r( $error );
 
   	}
+
+  }
+
+  public function app_nav_items( $items, $menu ) {
+
+    if ( $menu->menu == 'primary' ) {
+
+      if ( is_user_logged_in() ) {
+
+        $item = '<li><a href="' . get_bloginfo('url') . '"><i class="fa fa-home fa-fw"></i></a></li>';
+
+        $items = $item . $items;
+
+      }
+
+    }
+
+    return $items;
 
   }
 
