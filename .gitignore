@@ -17,6 +17,7 @@ wp-content/themes/*
 wp-content/plugins/index.php
 wp-content/themes/index.php
 !wp-content/themes/boilerplate
+wp-content/themes/boilerplate/lib
 
 # ignore OS generated files
 ehthumbs.db
