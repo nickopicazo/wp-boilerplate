@@ -2,9 +2,15 @@
   "require": {
     "components/jquery": "2.1.*",
     "twbs/bootstrap": "3.3.*",
-    "fortawesome/font-awesome": "4.4.*"
+    "fortawesome/font-awesome": "4.4.*",
+    "aristath/kirki": "2.3.*"
   },
   "config": {
-    "vendor-dir": "lib"
+    "vendor-dir": "wp-content/themes/boilerplate/lib"
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/themes/boilerplate/lib/aristath/kirki": ["aristath/kirki"]
+    }
   }
 }

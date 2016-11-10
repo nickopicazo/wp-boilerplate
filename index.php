@@ -1,11 +1,17 @@
-<?php get_header(); ?>
-<div class="page">
-  <div class="container">
-    <div class="row">
-      <div class="col col-sm-12">
-        <?php get_template_part( 'templates/loop', 'page' ); ?>
-      </div>
-    </div>
-  </div>
-</div>
-<?php get_footer(); ?>
+<?php
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
+
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define('WP_USE_THEMES', true);
+
+/** Loads the WordPress Environment and Template */
+require( dirname( __FILE__ ) . '/wp-blog-header.php' );

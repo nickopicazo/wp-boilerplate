@@ -1,4 +1,22 @@
+# ignore everything in the root except the "wp-content" directory.
+/*
+!wp-content
 !.gitignore
+!composer.json
+
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins" directory
+# "plugins" directory
+# "themes" directory
+#wp-content/*
+wp-content/upgrade
+wp-content/uploads
+wp-content/index.php
+!wp-content/plugins/
+wp-content/themes/*
+wp-content/plugins/index.php
+wp-content/themes/index.php
+!wp-content/themes/boilerplate
 
 # ignore OS generated files
 ehthumbs.db
